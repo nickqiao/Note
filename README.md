@@ -21,6 +21,6 @@ some notes
 ## dos2unix 将windows文件的换行符换成unix能识别的文件
 
 ## gradle中dependecy设置
-###  provided - compile-time only dependency(dagger2的注入是编译时生成的，apt也是编译时的，不过这里用了apt获得一些上述的功能)
-###  package - package-time only dependency
-###  compile - compile-time and package-time dependency(大多时候我们用的compile)
+###  provided  compile-time only dependency(dagger2的注入是编译时生成的，apt也是编译时的，不过这里用了apt获得一些上述的功能)
+###  package  package-time only dependency
+###  compile  compile-time and package-time dependency(大多时候我们用的compile)
