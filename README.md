@@ -9,15 +9,17 @@ some notes
 #### d2j-dex2jar.sh classes.dex
 
 ## svn添加忽略文件
-> export SVN_EDITOR=nano 如果遇到查看不了的忽略文件
-> svn propedit svn:ignore .
-> 进入之后把需要忽略的文件架上
-> 按ctrl x推出 按之后选Y确定
-> svn propget svn:ignore .查看忽略文件
-
-## 打包命令 chmod +x gradlew
-#### ./gradlew task buildSdkJar
-
+```
+export SVN_EDITOR=nano 如果遇到查看不了的忽略文件
+svn propedit svn:ignore .
+按ctrl x推出 按之后选Y确定
+svn propget svn:ignore .查看忽略文件
+```
+## 打包命令
+```
+chmod +x gradlew
+./gradlew task buildSdkJar
+```
 ## dos2unix 将windows文件的换行符换成unix能识别的文件
 
 ## gradle中dependecy设置
