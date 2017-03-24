@@ -1,5 +1,6 @@
 # Note
-some notes 
+平时随手用到的一些命令
+
 ## 常用的adb命令
 ```
 调起 Activity adb shell am start [options] <INTENT> 例如： adb shell am start -n com.tencent.mm/.ui.LauncherUI
