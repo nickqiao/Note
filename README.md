@@ -9,11 +9,11 @@ some notes
 #### d2j-dex2jar.sh classes.dex
 
 ## svn添加忽略文件
-#### export SVN_EDITOR=nano 如果遇到查看不了的忽略文件
-#### svn propedit svn:ignore .
-#### 进入之后把需要忽略的文件架上
-#### 按ctrl x推出 按之后选Y确定
-#### svn propget svn:ignore .查看忽略文件
+> export SVN_EDITOR=nano 如果遇到查看不了的忽略文件
+> svn propedit svn:ignore .
+> 进入之后把需要忽略的文件架上
+> 按ctrl x推出 按之后选Y确定
+> svn propget svn:ignore .查看忽略文件
 
 ## 打包命令 chmod +x gradlew
 #### ./gradlew task buildSdkJar
