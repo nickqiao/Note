@@ -14,3 +14,6 @@ some notes
 #### 进入之后把需要忽略的文件架上
 #### 按ctrl x推出 按之后选Y确定
 #### svn propget svn:ignore .查看忽略文件
+
+## 打包命令 chmod +x gradlew
+#### ./gradlew task buildSdkJar
