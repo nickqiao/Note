@@ -17,3 +17,5 @@ some notes
 
 ## 打包命令 chmod +x gradlew
 #### ./gradlew task buildSdkJar
+
+## dos2unix 将windows文件的换行符换成unix能识别的文件
