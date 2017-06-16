@@ -54,3 +54,8 @@ chmod +x gradlew
 whereis java 
 which java 
 ```
+## 常用的jar命令
+```
+向jar包中添加文件
+jar uf xxx.apk META-INF/xxx.file
+```
