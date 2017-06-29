@@ -59,3 +59,7 @@ which java
 向jar包中添加文件
 jar uf xxx.apk META-INF/xxx.file
 ```
+## 查看apk包名
+```
+keytool -printcert -file META-INF/CERT.RSA
+```
