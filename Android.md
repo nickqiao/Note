@@ -7,7 +7,9 @@ context.startService(mIntent);
 ```
 ####  webView给js传值注意
 ```
-1 String 类型的参数需要使用单引号 “’” 包裹，数组类型的参数则不用，如：javascript:javaCallJs([01, 02, 03])，其他复杂类型的参数可以转换为 Json 字符串的形式传递。
+1 String 类型的参数需要使用单引号 “’” 包裹，数组类型的参数则不用，
+  如：javascript:javaCallJs([01, 02, 03])，
+  其他复杂类型的参数可以转换为 Json 字符串的形式传递。
 
 2 可以把复杂字符串encode一次试试
 ```
