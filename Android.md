@@ -1,12 +1,8 @@
-# Some Android Notes
-## Android5.0后 Service Intent  must be explitict
-#### Intent mIntent = new Intent();
-#### mIntent.setAction("XXX.XXX.XXX");//你定义的service的action
-#### mIntent.setPackage(getPackageName());//这里你需要设置你应用的包名
-#### context.startService(mIntent);
+#### Android5.0后 Service Intent  must be explitict(显式调用)
+```
+Intent mIntent = new Intent();
+mIntent.setAction("XXX.XXX.XXX");//你定义的service的action
+mIntent.setPackage(getPackageName());//这里你需要设置你应用的包名
+context.startService(mIntent);
+```
 
-## 当且仅当满足以下所有条件时，才应该使用 volatile 变量：
-
-#### 对变量的写入操作不依赖变量的当前值，或者你能确保只有单个线程更新变量的值。
-#### 该变量没有包含在具有其他变量的不变式中。
-#### 在需要同步的时候，第一选择应该是 synchronized 关键字，这是最安全的方式
