@@ -31,13 +31,6 @@ apktool d your.apk
 使用解压软件解压.apk文件,获取classes.dex文件,使用dex2jar转换为可以使用jd_gui打开的jar文件
 d2j-dex2jar.sh classes.dex
 ```
-## svn添加忽略文件
-```
-export SVN_EDITOR=nano 如果遇到查看不了的忽略文件
-svn propedit svn:ignore .
-按ctrl x推出 按之后选Y确定
-svn propget svn:ignore .查看忽略文件
-```
 ## 打包命令
 ```
 chmod +x gradlew
