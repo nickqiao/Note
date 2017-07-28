@@ -11,5 +11,5 @@ context.startService(mIntent);
   如：javascript:javaCallJs([01, 02, 03])，
   其他复杂类型的参数可以转换为 Json 字符串的形式传递。
 
-2 可以把复杂字符串encode一次试试
+2 android base64的时候选择模式一定要是Base64.NO_WRAP，否则在base64图片的时候传给webview有问题
 ```
