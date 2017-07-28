@@ -1,18 +1,34 @@
-# Note
-平时随手用到的一些命令
-
-## 常用的adb命令
+#### 调起 Activity
 ```
-调起 Activity adb shell am start [options] <INTENT> 例如： adb shell am start -n com.tencent.mm/.ui.LauncherUI
-调起 Service adb shell am startservice [options] <INTENT> 
- 例如： adb shell am startservice -n com.tencent.mm/.plugin.accountsync.model.AccountAuthenticatorService
-强制停止应用 adb shell am force-stop com.qihoo360.mobilesafe
-查看当前所在的进程信息 adb shell ps 或 adb shell ps|grep 包名 
-清除应用数据与缓存   adb shell pm clear <packagename>
-查看前台 Activity adb shell dumpsys activity activities | grep mFocusedActivity
-查看正在运行的Services adb shell dumpsys activity services [<packagename>]
-
-查看设备信息
+adb shell am start [options] <INTENT> 例如： adb shell am start -n com.tencent.mm/.ui.LauncherUI
+```
+#### 调起 Service 
+```
+adb shell am startservice [options] <INTENT> 
+例如： adb shell am startservice -n com.tencent.mm/.plugin.accountsync.model.AccountAuthenticatorService
+```
+#### 强制停止应用 
+```
+adb shell am force-stop com.qihoo360.mobilesafe
+```
+#### 查看当前所在的进程信息 
+```
+adb shell ps 或 adb shell ps|grep 包名 
+```
+#### 清除应用数据与缓存   
+```
+adb shell pm clear <packagename>
+```
+#### 查看前台 Activity 
+```
+adb shell dumpsys activity activities | grep mFocusedActivity
+```
+#### 查看正在运行的Services 
+```
+adb shell dumpsys activity services [<packagename>]
+```
+#### 查看设备信息
+```
 adb shell getprop ro.product.model
 adb shell dumpsys battery
 adb shell wm size
