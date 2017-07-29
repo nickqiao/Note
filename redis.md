@@ -1,2 +1,4 @@
-# Note
-some notes 
+#### 启动
+```
+redis-server
+```
