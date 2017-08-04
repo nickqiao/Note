@@ -56,7 +56,8 @@ public abstract class PriorityRunnable implements Runnable, Comparable {
 ```
 3. 使用如下:
 ```
-ExecutorService priorityThreadPool = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.SECONDS, new PriorityBlockingQueue());
+ExecutorService priorityThreadPool 
+= new ThreadPoolExecutor(3, 3, 0L, TimeUnit.SECONDS, new PriorityBlockingQueue());
         for (int i = 1; i 10; i++) {
             final int priority = i;
             priorityThreadPool.execute(new PriorityRunnable(priority) {
@@ -72,3 +73,9 @@ ExecutorService priorityThreadPool = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.S
             });
         }
 ```
+#### 优化线程池 通常核心线程数可以设为CPU数量+1，而最大线程数可以设为CPU的数量\2+1*
+```
+Runtime.getRuntime().availableProcessors();
+```
+
+
