@@ -11,6 +11,9 @@ PathClassLoader只能加载系统中已经安装过的apk
 （应用启动时创建的，用于加载“/data/app/应用报名/base.apk”里面的类）
 ```
 #### ClassLoader双亲代理模型加载类的特点和作用
+* 会先查询当前ClassLoader实例是否加载过此类，有就返回；
+* 如果没有。查询Parent是否已经加载过此类，如果已经加载过，就直接返回Parent加载的类；
+* 如果继承路线上的ClassLoader都没有加载，才由Child执行类的加载工作；
 ```
 JVM中ClassLoader通过defineClass方法加载jar里面的Class，而Android中这个方法被弃用了。
  @Deprecated
