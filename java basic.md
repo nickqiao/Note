@@ -15,6 +15,17 @@ print
 mid using >>> 1 = 2050000000
 mid using / 2   = -97483648
 ```
+#### RandomAccess 接口 RandomAccess接口是List 实现所使用的标记接口，
+用来表明其支持快速（通常是固定时间）随机访问。
+此接口的主要目的是允许一般的算法更改其行为，从而在将其应用到随机或连续访问列表时能提供良好的性能
+
+```
+在对list的遍历算法中,要尽量来判断是属于RandomAccess(如ArrayList)还是SequenceAccess(如LinkedList）
+如果属于RandomAccess ，使用普通遍历  for 循环效率更高
+
+否则使用遍历器 Iterator进行遍历
+
+```
 #### linux电脑下java
 ```
 whereis java 
