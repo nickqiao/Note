@@ -4,6 +4,17 @@
 该变量没有包含在具有其他变量的不变式中。
 在需要同步的时候，第一选择应该是 synchronized 关键字，这是最安全的方式
 ```
+#### java 移位运算符 >>>  无符号右移，忽略符号位，空位都以0补齐
+```
+int high = 2100000000;
+int low = 2000000000;
+System.out.println("mid using >>> 1 = " + ((low + high) >>> 1));
+System.out.println("mid using / 2   = " + ((low + high) / 2));
+
+print
+mid using >>> 1 = 2050000000
+mid using / 2   = -97483648
+```
 #### linux电脑下java
 ```
 whereis java 
