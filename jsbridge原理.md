@@ -13,3 +13,7 @@ jsbridge://className:callbackAddress/methodName?jsonObj
 ```
 利用js的iFrame（不显示）的src动态变化，触发java层webClient的shouldOverrideUrlLoading，然后让本地去调用javasript
 ```
+#### 客户端调用js
+```
+webview.loadUrl("javascript:WebViewJavascriptBridge._handleMessageFromNative('%s');" );
+```
