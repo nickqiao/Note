@@ -1,0 +1,3 @@
+#### IntentService原理
+普通的Service是在主线程处理任务,IntentServie的特别之处就是在初始化的时候用了HandlerThread
+在子线程处理任务
