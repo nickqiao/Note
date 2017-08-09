@@ -6,7 +6,7 @@
 * 把插件 Activity 的生命周期抽象成接口，在 ProxyActivity 的生命周期里调用
 
 #### 在插件 Activity 里使用 res 资源
-平时获取res方式: context.getResoures().get(resId)
+平时获取res方式: context.getResoures().getXXX(resId)
 ```
 @Override
     public Resources getResources() {
@@ -22,4 +22,52 @@
             return mResources;
         }
     }
+```
+super 类 ContextThemeWrapper 里的 “getResources()” 方法,
+```
+    Context mBase;
+    
+    public ContextWrapper(Context base) {
+        mBase = base;
+    }
+    @Override
+    public Resources getResources() {
+        return mBase.getResources();
+    }
+```
+由于context是抽象类，具体实现应该是在contextImpl中
+```
+    @Override
+    public Resources getResources() {
+        return mResources;
+    }
+    构造方法中 {
+      resources = mResourcesManager.getTopLevelResources(packageInfo.getResDir(),
+                        packageInfo.getSplitResDirs(), packageInfo.getOverlayDirs(),
+                        packageInfo.getApplicationInfo().sharedLibraryFiles, displayId,
+                        overrideConfiguration, compatInfo);
+     mResources = resources;
+    }
+    
+    Resources getTopLevelResources(String resDir, String[] splitResDirs,
+           String[] overlayDirs, String[] libDirs, int displayId,
+           Configuration overrideConfiguration, CompatibilityInfo compatInfo) {
+       Resources r;
+       AssetManager assets = new AssetManager();
+       if (libDirs != null) {
+           for (String libDir : libDirs) {
+               if (libDir.endsWith(".apk")) {
+                   if (assets.addAssetPath(libDir) == 0) {
+                       Log.w(TAG, "Asset path '" + libDir +
+                               "' does not exist or contains no resources.");
+                   }
+               }
+           }
+       }
+       DisplayMetrics dm = getDisplayMetricsLocked(displayId);
+       Configuration config ……;
+       r = new Resources(assets, dm, config, compatInfo);
+       return r;
+   }
+    
 ```
