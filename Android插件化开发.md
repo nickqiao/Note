@@ -71,3 +71,19 @@ super 类 ContextThemeWrapper 里的 “getResources()” 方法,
    }
     
 ```
+#### 最终得到从插件中访问资源代码
+```
+try {  
+    AssetManager assetManager = AssetManager.class.newInstance();  
+    Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);  
+    addAssetPath.invoke(assetManager, mDexPath);  
+    mAssetManager = assetManager;  
+} catch (Exception e) {  
+    e.printStackTrace();  
+}  
+Resources superRes = super.getResources();  
+mResources = new Resources(mAssetManager, superRes.getDisplayMetrics(),  
+        superRes.getConfiguration());
+```
+#### 总结 
+主项目里的 res 资源是保存在 ContextImpl 里面的 Resources 实例，整个项目共有，而新加进来的 res 资源是保存在新创建的 Resources 实例的，也就是说 ProxyActivity 其实有两套 res 资源，并不是把新的 res 资源和原有的 res 资源合并了（所以不怕 R.id 重复），对两个 res 资源的访问都需要用对应的 Resources 实例，这也是开发时要处理的问题
