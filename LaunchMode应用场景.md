@@ -8,6 +8,9 @@
 * 设置了"singleTask"启动模式的Activity，它在启动的时候，会先在系统中查找属性值affinity等于它的属性值taskAffinity的Task存在； 
   如果存在这样的Task，它就会在这个Task中启动，否则就会在新的任务栈中启动。
   因此， 如果我们想要设置了"singleTask"启动模式的Activity在新的任务中启动，就要为它设置一个独立的taskAffinity属性值
+  不指定TaskAffinity，singleTask会在默认的task 中执行，这个符合预期，一般也都是这么用的，不需要指定。
+  不指定TaskAffinity，singleInstance之后启动的页面不能放倒singleInstance所在那个task中，会放倒默认的task中
+  没有为各个activity定义taskAffinity，那么默认的affinity值就是包名，那么几个Activity都是一样的，所以就在同样的Task中启动了。
 * 如果设置了"singleTask"启动模式的Activity不是在新的任务中启动时，它会在已有的任务中查看是否已经存在相应的Activity实例， 
   如果存在，就会把位于这个Activity实例上面的Activity全部结束掉，即最终这个Activity 实例会位于任务的Stack顶端中。
 * 在一个任务栈中只有一个”singleTask”启动模式的Activity存在。他的上面可以有其他的Activity。
