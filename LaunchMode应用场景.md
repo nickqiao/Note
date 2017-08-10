@@ -1,4 +1,4 @@
-#### 
+#### LaunchMode应用场景
 * standard 创建一个新的Activity
 * singleTop，栈顶不是该类型的Activity，创建一个新的Activity。否则，onNewIntent。
 * singleTask，回退栈中没有该类型的Activity，创建Activity，否则，onNewIntent+ClearTop。
