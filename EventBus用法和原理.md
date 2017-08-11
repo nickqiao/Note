@@ -1,6 +1,9 @@
 #### EventBus原理: 
     一个单例内部维持着一个map对象存储了一堆的方法；post无非就是根据参数去查找方法，进行反射调用
-
+#### EventBus存储方法的map subscriptionsByEventType ,以class为 key 
+    ```
+    private final Map<Class<?>, CopyOnWriteArrayList<Subscription>> subscriptionsByEventType
+    ```
 #### ThreadMode
 ```
     /**
