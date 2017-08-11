@@ -5,7 +5,7 @@ ThreadPoolExecutor实现了ExecutorService接口，但是由于构造方法过�
 ```
 #### Executors提供的五种功能的线程池
 * newFixedThreadPool() -----> LinkedBlockingQueue
-* newCachedThreadPool() -------> SynchronousQueue
+* newCachedThreadPool() -------> SynchronousQueue（无界线程池,可以自动回收线程）
 * newSingleThreadExecutor() ------> LinkedBlockingQueue
 * newScheduledThreadPool()  -------> DelayedWorkQueue
 * newSingleThreadScheduledExecutor() -------> DelayedWorkQueue
