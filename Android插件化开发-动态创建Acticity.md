@@ -1,2 +1,5 @@
 #### 动态创建Activity
+```
+前面说过，startActivity最终通过ActivityManagerNative这个方法远程调用了AMS的startActivity方法，ActivityManagerNative实际上就是ActivityManagerService这个远程对象的Binder代理对象；每次需要与AMS打交道的时候，需要借助这个代理对象通过驱动进而完成IPC调用
 
+```
