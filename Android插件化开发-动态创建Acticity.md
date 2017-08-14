@@ -1,7 +1,5 @@
 #### 动态创建Activity
-*
-前面说过，startActivity最终通过ActivityManagerNative这个方法远程调用了AMS的startActivity方法，ActivityManagerNative实际上就是ActivityManagerService这个远程对象的Binder代理对象；每次需要与AMS打交道的时候，需要借助这个代理对象通过驱动进而完成IPC调用
+* 前面说过，startActivity最终通过ActivityManagerNative这个方法远程调用了AMS的startActivity方法，ActivityManagerNative实际上就是ActivityManagerService这个远程对象的Binder代理对象；每次需要与AMS打交道的时候，需要借助这个代理对象通过驱动进而完成IPC调用
 
-* 
-framework使用了一个单例把这个AMS的代理对象保存了起来；这样只要需要与AMS进行IPC调用，获取这个单例即可，所以我们需要Hook掉这个单例，就可以达到Hook AMS的效果
+* framework使用了一个单例把这个AMS的代理对象保存了起来；这样只要需要与AMS进行IPC调用，获取这个单例即可，所以我们需要Hook掉这个单例，就可以达到Hook AMS的效果
 
