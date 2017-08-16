@@ -26,6 +26,10 @@ mid using / 2   = -97483648
 否则使用遍历器 Iterator进行遍历
 
 ```
+#### MAC JDK路径查看
+```
+/usr/libexec/java_home -V
+```
 #### linux电脑下java
 ```
 whereis java 
