@@ -41,7 +41,7 @@ animate() 方法就是在 Android 3.1 系统上新增的一个方法，这个方
 ```
 textview.animate().x(500).y(500).setDuration(5000).setInterpolator(new BounceInterpolator());
 ```
-#### ，每个 View 中都有 Canvas 可以用来绘制动画，只需要在这个 View 中重载 onDraw() 方法就可以。那用什么来绘制动画呢？我们可以考虑使用 SurfaceView，它能够在非 UI 线程中进行图形绘制，释放了 UI 线程的压力
+#### 每个 View 中都有 Canvas 可以用来绘制动画，只需要在这个 View 中重载 onDraw() 方法就可以。那用什么来绘制动画呢？我们可以考虑使用 SurfaceView，它能够在非 UI 线程中进行图形绘制，释放了 UI 线程的压力
 ```
 public class MainActivity extends Activity {  
 	@Override  
