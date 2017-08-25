@@ -41,6 +41,33 @@ animate() 方法就是在 Android 3.1 系统上新增的一个方法，这个方
 ```
 textview.animate().x(500).y(500).setDuration(5000).setInterpolator(new BounceInterpolator());
 ```
+#### 目的还是尽量减少 ObjectAnimator 的创建 可以这样来优化。实现自定义 TypeEvaluator，使用它的 evaluate 函数来实现自己的属性变更逻辑
+一般写法
+```
+ObjectAnimator aPaintX = ObjectAnimator.ofFloat(this, "translationX", 0, 100);
+		//PaintY
+		ObjectAnimator aPaintY = ObjectAnimator.ofFloat(this, "translationY", 0, 100);
+		//AnimatorSet
+		AnimatorSet set = new AnimatorSet();
+		set.playTogether(aPaintX, aPaintY);
+		set.start();
+```
+改为
+```
+public static class PaintEvaluator implements TypeEvaluator {
+        private static final PaintEvaluator sInstance = new PaintEvaluator();
+        public static PaintEvaluator getInstance() {
+	return sInstance;
+        }
+        public Object evaluate(float fraction, Object startValue, Object endValue) {
+	ViewProperty start = (ViewProperty) startValue;
+	ViewProperty end = (ViewProperty) endValue;
+	float x = start.paintX + fraction * (end.paintX - start.paintX); //根据自己定义的算法，分别计算 x y 值，然后返回
+	float y = start.paintY + fraction * (end.paintY - start.paintY);
+	return new ViewProperty(x, y); //不限可以是 xy 坐标值，还可以根据自己需求自定义其它属性，例如 alpha 值等等
+        }
+    }
+```
 #### 每个 View 中都有 Canvas 可以用来绘制动画，只需要在这个 View 中重载 onDraw() 方法就可以。那用什么来绘制动画呢？我们可以考虑使用 SurfaceView，它能够在非 UI 线程中进行图形绘制，释放了 UI 线程的压力
 ```
 public class MainActivity extends Activity {  
