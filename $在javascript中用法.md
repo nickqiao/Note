@@ -28,9 +28,7 @@ $(function(){
 * $用来创建DOM元素
 ```
 例如：$("<p>how are you?</p>")
-
 创建DOM对象，注意必须有<p>和</p>或者是其他的html标签，如<h1></h1>,<span></span>
-
 $('<div>86市场网</div>').appendTo('body');//动态创建一个div元素（以及其中的所有内容），并将它追加到body中。
 ```
 
