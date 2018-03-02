@@ -17,9 +17,11 @@ $(function(){...}); 里面的函数会在DOM树加载完之后执行
 $(function) 是 $(document).ready()的简写方式，当DOM文档载入完成后执行相应的函数
 
 以下两个相等
+
 $(document).ready(function(){
  alert("Hello World!");
 });
+
 $(function(){
  alert("Hello World2!");
 });
