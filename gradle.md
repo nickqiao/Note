@@ -9,3 +9,8 @@
 chmod +x gradlew
 ./gradlew task buildSdkJar
 ```
+
+#### gradle地址
+```
+/Users/nickchen/.gradle/
+```
